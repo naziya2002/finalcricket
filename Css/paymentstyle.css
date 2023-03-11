@@ -193,5 +193,23 @@
         width: 200px;
         height: 50px;
     }
-
+    .container .card-container{
+        width: 90%;
+        
+        position: relative;
+    }
+    .container form .inputBox{
+        width: 100%;
+        margin-top: 30px;
+    }
+    .container form{
+        width: 400px;
+    }
+   .flexbox{
+    display: flex;
+    flex-direction: column;
+    margin: 0px;
+    padding: 0px;
+    gap: 0px;
+   }
 }
