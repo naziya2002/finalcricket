@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<!-- Created By CodingLab - www.codinglabweb.com -->
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <title>Login Form | CodingLab</title> -->
+    <link rel="stylesheet" href="./Css/loginn.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"/>
+  </head>
+  <body>
+
+    <!-- <header class="header">
+      <div class="container1">
+          <div class="row v-center">
+              <div class="header-item item-left">
+                  <div class="logo"><img src="Images/crickbook-logo.png" style="width: 100px;height: 80px;"></div>
+              </div>
+              <div class="header-item item-center">
+                  <div class="menu-overlay"></div>
+                  <nav class="menu">
+                      <div class="mobile-menu-head">
+                          <div class="go-back"><i class="fas fa-angle-left"></i></div>
+                          <div class="current-menu-title"></div>
+                          <div class="mobile-menu-close">&times;</div>
+                      </div>
+                      <ul class="menu-main">
+                          <li><a href="#">Home</a></li>
+                          <li>
+                              <a href="./bookingg.html">Book</a>
+                          </li>
+
+
+                          <li>
+                              <a href="contact.html">Support</a>
+                          </li>
+
+                          <li>
+                              <a href="#">Discover</a>
+                          </li>
+                          <li>
+                            <a href="./memlogin.html">Booking Details</a>
+                        </li>
+                  
+                      </ul>
+                  </nav>
+              </div>
+              <div class="header-item item-right">
+                  <a href="#"><i class="fas fa-search"></i></a>
+                  <a href="#"><i class="fas fa-shopping-cart"></i></a>
+                  <a href="#"><i class="fas fa-heart"></i></a>
+
+                  <div class="mobile-menu-trigger">
+                      <span></span>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </header> -->
+
+
+    <div class="container">
+      <div class="wrapper">
+        <div class="title"><span>Login Form</span></div>
+        <form action="#">
+          <div class="row">
+            <i class="fas fa-user"></i>
+            <input type="text" placeholder="Email " id="email" required>
+          </div>
+          <div class="row">
+            <i class="fas fa-lock"></i>
+            <input type="password" placeholder="Password" id="password" required>
+          </div>
+          <div class="pass"><a href="#">Forgot password?</a></div>
+          <div class="row button">
+            <input type="submit" value="Login" id="signIn">
+          </div>
+          <div class="signup-link">Not a member? <a href="./register.html">Signup now</a></div>
+        </form>
+      </div>
+    </div>
+
+  </body>
+  <script type="module">
+    // Import the functions you need from the SDKs you need
+    
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/9.8.2/firebase-app.js";
+    import { getDatabase,set,ref } from "https://www.gstatic.com/firebasejs/9.8.2/firebase-database.js";
+           
+    import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.8.2/firebase-analytics.js";
+      import { getAuth, signInWithEmailAndPassword,signOut,createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/9.8.2/firebase-auth.js";
+       
+      
+      // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+// For Firebase JS SDK v7.20.0 and later, measurementId is optional
+const firebaseConfig = {
+  apiKey: "AIzaSyD5KJUvPuQxIjjV1o5jDN73xES91glbx7I",
+  authDomain: "cricket-site-a0a94.firebaseapp.com",
+  databaseURL: "https://cricket-site-a0a94-default-rtdb.firebaseio.com",
+  projectId: "cricket-site-a0a94",
+  storageBucket: "cricket-site-a0a94.appspot.com",
+  messagingSenderId: "898982326241",
+  appId: "1:898982326241:web:b5c2a520255e826fd4aca0",
+  measurementId: "G-V2JBB2J10Q"
+};
+// Initialize Firebase
+
+const app =initializeApp(firebaseConfig);
+const analytics = getAnalytics(app);
+const database=getDatabase(app);
+const auth = getAuth();
+
+
+signIn.addEventListener('click',(e)=>{
+e.preventDefault();
+var email=document.getElementById('email').value;
+var password=document.getElementById('password').value;
+
+
+signInWithEmailAndPassword(auth, email, password).catch((error) => {
+const errorCode = error.code;
+const errorMessage = error.message;
+alert(errorMessage)
+}).then((userCredential) => {
+// Signed in 
+
+const user = userCredential.user;
+if (user){
+alert('welcome you are logged in')
+
+
+}
+
+window.location.href="clientdetails.html"
+
+});
+
+})
+
+</script>
+<script src="./js/main.js"></script>
+</html>
+
